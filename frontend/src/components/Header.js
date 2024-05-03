@@ -1,8 +1,7 @@
 import React from 'react';
-import Tabs,{tabsClasses} from '@mui/material/Tabs';
+import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -22,12 +21,8 @@ export default function Header() {
                 onChange={handleChange}
                 variant="scrollable"
                 scrollButtons
-                aria-label="visible arrows tabs example"
-                sx={{
-                    [`& .${tabsClasses.scrollButtons}`]: {
-                        '&.Mui-disabled': { opacity: 0.3 },
-                    },
-                }}
+                allowScrollButtonsMobile
+                aria-label="scrollable force tabs example"
             >
                 <Tab label="Home" />
                 <Tab label="Women" />
