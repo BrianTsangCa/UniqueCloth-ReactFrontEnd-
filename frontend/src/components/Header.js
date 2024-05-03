@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from '@mui/material/Tabs';
+import Tabs,{tabsClasses} from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
@@ -16,29 +16,40 @@ export default function Header() {
         setValue(newValue);
     };
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' ,width:'80%'}}>
-            <Tabs value={value} onChange={handleChange} sx={{ alignSelf: 'flex-start' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '80%' }}>
+            <Tabs
+                value={value}
+                onChange={handleChange}
+                variant="scrollable"
+                scrollButtons
+                aria-label="visible arrows tabs example"
+                sx={{
+                    [`& .${tabsClasses.scrollButtons}`]: {
+                        '&.Mui-disabled': { opacity: 0.3 },
+                    },
+                }}
+            >
                 <Tab label="Home" />
                 <Tab label="Women" />
                 <Tab label="Men" />
             </Tabs>
-                <ButtonGroup
-                    disableElevation
-                    variant="contained"
-                    aria-label="Disabled button group">
-                    <IconButton aria-label="search" color="primary">
-                        <SearchIcon />
-                    </IconButton>
-                    <IconButton aria-label="PermIdentity" color="primary">
-                        <PermIdentityIcon />
-                    </IconButton>
-                    <IconButton color="primary" aria-label="Favorite">
-                        <FavoriteIcon />
-                    </IconButton>
-                    <IconButton color="primary" aria-label="add to shopping cart">
-                        <AddShoppingCartIcon />
-                    </IconButton>
-                </ButtonGroup>
+            <ButtonGroup
+                disableElevation
+                variant="contained"
+                aria-label="Disabled button group">
+                <IconButton aria-label="search" color="primary">
+                    <SearchIcon />
+                </IconButton>
+                <IconButton aria-label="PermIdentity" color="primary">
+                    <PermIdentityIcon />
+                </IconButton>
+                <IconButton color="primary" aria-label="Favorite">
+                    <FavoriteIcon />
+                </IconButton>
+                <IconButton color="primary" aria-label="add to shopping cart">
+                    <AddShoppingCartIcon />
+                </IconButton>
+            </ButtonGroup>
         </Box>
     );
 }
